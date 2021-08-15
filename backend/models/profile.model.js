@@ -1,6 +1,6 @@
 module.exports =(sequelize, type) =>{
     return sequelize.define('profile',{
-        id:{
+        idProfile:{
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true

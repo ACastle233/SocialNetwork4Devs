@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
-const { Usuario } = require("../../db/connection");
+const { Usuario, Profile } = require("../../db/connection");
 //const { check, validationResult } = require("express-validator");
 //const midd = require('../Middlewares/midd.usuario')
 const usuariosService = require("../../services/users.service");
@@ -65,10 +65,45 @@ router.put("/changePass",  async (req, res) => {
   } catch (error) {
     res
       .status(400)
-      .render("404", {
+      .json("404", {
         msj: error.message,
         titulo: "Error al realizar su registro",
       });
   }
 });
+
+
+router.post('/addProfile', async (req,res) =>{
+  try {
+    console.log(req.body)
+    let id = Number(req.body.idUser)
+    const profile = await Profile.create({firstName:req.body.firstName, lastName:req.body.lastName, usuarioId: id})
+    const user = await Usuario.findOne({ where:{ id : id}, include: Profile});
+    res.json(user);
+  } catch (error) {
+    res
+      .status(400)
+      .json("404", {
+        msj: error.message,
+        titulo: "Error al realizar su registro",
+      });
+  }
+})
+
+router.get('/getProfile/:idUser', async (req,res) =>{
+  try {
+    console.log(req.body)
+    let id = Number(req.params.idUser)
+    //const user = await Usuario.findOne({ where:{ id : id}, include: Profile});
+    const user = await Profile.findOne({ where:{ usuarioId : id}});
+    res.json(user);
+  } catch (error) {
+    res
+      .status(400)
+      .json("404", {
+        msj: error.message,
+        titulo: "Error al realizar su registro",
+      });
+  }
+})
 module.exports = router;
