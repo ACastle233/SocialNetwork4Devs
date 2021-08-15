@@ -4,7 +4,7 @@
             <div class="card my-3" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
+                  <h5 class="card-title">{{this.user.username}}</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -14,11 +14,11 @@
                 </ul>
                 <div class="card-body">
                   <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
+                  <button class="btn btn-danger mx-2" (click)="logout()">Log out</button>
                 </div>
               </div>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-8">
           <div class="feature_item ">
             <div class="row">
               <div class="row-lg-6">
