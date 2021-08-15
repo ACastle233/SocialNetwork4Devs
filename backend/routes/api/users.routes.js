@@ -9,7 +9,17 @@ const midd = require('../../middlewares/midd.users')
 router.post("/register", midd.checkDatosAlta, async (req, res) => {
   try {
     req.body.password = bcrypt.hashSync(req.body.password, 10); // aqui nos pasa la contraseña ya encriptada
-    const user = await Usuario.create(req.body);
+    const user = await Usuario.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      profile: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+      }
+    }, {
+      include: [Profile]
+    });
     
     res.json(user);
   } catch (error) {

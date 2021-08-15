@@ -36,6 +36,16 @@ export class RegisterComponent implements OnInit {
         Validators.compose([
           Validators.required
         ]),
+      ],firstName: [
+        '',
+        Validators.compose([
+          Validators.required
+        ]),
+      ],lastName: [
+        '',
+        Validators.compose([
+          Validators.required
+        ]),
       ],
       //CHECAR REGEX PASS
       password: [
@@ -57,13 +67,17 @@ export class RegisterComponent implements OnInit {
     let email = String(this.formLogin?.value.email);
     let passwordConfirm = String(this.formLogin?.value.passwordConfirm);
     let password = String(this.formLogin?.value.password);
-    console.log(username, email, password, passwordConfirm)
+    let firstName = String(this.formLogin?.value.firstName);
+    let lastName = String(this.formLogin?.value.lastName);
+    console.log(username, email, password, passwordConfirm, firstName, lastName)
 
     if(password === passwordConfirm){
       let usuario = {
         username: username,
         email: email,
-        password: password
+        password: password,
+        firstName: firstName,
+        lastName:lastName
       }
       this.apiService.postTypeRequest('api/usuarios/register', usuario).subscribe((res:any) =>{
         console.log(res)
