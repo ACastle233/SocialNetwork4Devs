@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <div class="card my-3" style="width: 18rem">
+        <img
+          src="../../assets/img/profile.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ this.user.username }}</h5>
+          <h6 class="card-subtitle mb-2">
+            {{ this.userProfile!.firstName + " " + this.userProfile!.lastName }}
+          </h6>
+          <p class="card-text">{{ this.userProfile!.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Country: {{this.userProfile!.country}}</li>
+          <li class="list-group-item">City: {{this.userProfile!.city}}</li>
+        </ul>
+        <div class="card-body">
+          <a class="btn btn-primary" routerLink="/profile">See profile</a>
+          <button class="btn btn-danger mx-2" (click)="logout()">
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+
+
+      <div class="feature_item">
+        <div class="row">
+          <div class="row-lg-6">
+
+            <form action="" class="form-group">
+              <input type="text" class="form-control my-3" placeholder="Search for a dev..." (input)="searchDevs($event)">
+            </form>
+
+            <div class="card my-3" *ngFor="let profile of this.profiles">
+              <div class="card-body">
+                <img src="../../assets/img/profile.png" class="imgProfile rounded float-end"/>
+                <h5 class="card-title">{{profile.firstName + " " + profile.lastName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{profile.country}}</h6>
+                <p class="card-text">
+                  {{profile.description}}
+                </p>
+                
+                <a href="#" class="card-link">See profile</a>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
