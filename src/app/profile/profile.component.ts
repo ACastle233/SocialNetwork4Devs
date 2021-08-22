@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile } from '../models/Profile';
 import { Score, ScoreModule } from '../models/ScoreModel';
-
-
-
+import { ApiService } from '../services/api.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,8 +10,8 @@ import { Score, ScoreModule } from '../models/ScoreModel';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-
+  user:any
+  public userProfile?: Profile = new Profile();
   selectedValue?: string[];
   selectedCar?: string[];
 
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
   ];
 
   scoreknowledge?: Array<ScoreModule> = new Array<ScoreModule>();
-  constructor() { 
+  constructor(private apiService:ApiService, private auth:AuthService) { 
     let aux: ScoreModule = {score:this.pBD}
     for (let j = 0; j < 5; j++) {
       this.scoreknowledge?.push(aux)
@@ -35,7 +35,14 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
+    this.user = this.auth.getUserDetails();
+
+    this.apiService.getTypeRequest(`api/profiles/getProfile/${this.user.id}`).subscribe((res:any)=>{
+      this.auth.setDataInLocalStorage('profile',JSON.stringify(res))
+      this.userProfile = JSON.parse(localStorage.getItem('profile')!)
+      console.log(this.userProfile?.country)
+    })
   }
 
 

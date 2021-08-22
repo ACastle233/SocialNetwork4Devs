@@ -9,6 +9,11 @@ module.exports =(sequelize, type) =>{
         lastName: type.STRING,
         country: type.STRING,
         city: type.STRING,
-        description: type.STRING
+        description: type.STRING,
+        age: type.STRING,
+        studies: type.STRING,
+        languages: type.STRING,
+        hobbies: type.STRING,
+        linkedin: type.STRING
     })
 }

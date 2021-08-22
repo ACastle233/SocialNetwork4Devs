@@ -43,30 +43,30 @@
             <div class="card w-100">
               <img src="..." class="card-img-top" alt="..." />
               <div class="card-body">
-                <h5 class="card-title">Full name</h5>
+                <h5 class="card-title">{{this.userProfile!.firstName + " " + this.userProfile!.lastName}}</h5>
                 <p class="card-text">
-                  Description ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                  {{this.userProfile!.description}}
                 </p>
                 <p class="card-text">
-                  Country: 
+                  Country: {{this.userProfile?.country}}
                 </p>
                 <p class="card-text">
-                  City: 
+                  City: {{this.userProfile?.city}}
                 </p>
                 <p class="card-text">
-                  Age: 
+                  Age: {{this.userProfile?.age}}
                 </p>
                 <p class="card-text">
-                  Studies: 
+                  Studies: {{this.userProfile?.studies}}
                 </p>
                 <p class="card-text">
-                  Languages: 
+                  Languages: {{this.userProfile?.languages}}
                 </p>
                 <p class="card-text">
-                  Linkedin: 
+                  Linkedin: <a [href]="this.userProfile?.linkedin">{{this.userProfile?.linkedin}}</a>
                 </p>
                 <p class="card-text">
-                  Hobbies: 
+                  Hobbies: {{this.userProfile?.hobbies}}
                 </p>
     
               <button class="btn btn-primary text-center">Edit profile</button>

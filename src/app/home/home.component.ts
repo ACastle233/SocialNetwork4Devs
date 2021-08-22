@@ -19,6 +19,7 @@ interface Profile{
 export class HomeComponent implements OnInit {
   user:any;
   public userProfile?: Profile;
+  profiles: Array<Profile> = new Array<Profile>()
   constructor(private auth:AuthService, private router: Router, private apiService:ApiService) { 
     this.userProfile = {firstName: "", lastName:"", description:"Description"}
   }
@@ -31,6 +32,14 @@ export class HomeComponent implements OnInit {
       this.auth.setDataInLocalStorage('profile',JSON.stringify(res))
       this.userProfile = JSON.parse(localStorage.getItem('profile')!)
       console.log(this.userProfile)
+    })
+
+    this.apiService.getTypeRequest(`api/usuarios/profiles`).subscribe((res:any)=>{
+      //console.log(res)
+      res.forEach((element:any) => {
+        this.profiles.push(element)
+      });
+      console.log(this.profiles)
     })
 
 
