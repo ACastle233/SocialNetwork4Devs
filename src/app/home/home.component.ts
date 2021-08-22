@@ -6,7 +6,9 @@ import { AuthService } from '../services/auth.service';
 interface Profile{
   firstName:string,
   lastName:string,
-  description?:string
+  description?:string,
+  country?: string,
+  city?: string 
 }
 
 @Component({

@@ -1,52 +1,65 @@
 <div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col">
-            <div class="card my-3" style="width: 18rem;">
-                <img src="../../assets/img/profile.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{this.user.username}}</h5>
-                  <h6 class="card-subtitle mb-2">{{this.userProfile!.firstName + ' ' + this.userProfile!.lastName}}</h6>
-                  <p class="card-text">{{this.userProfile!.description}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">An item</li>
-                  <li class="list-group-item">A second item</li>
-                  <li class="list-group-item">A third item</li>
-                </ul>
-                <div class="card-body">
-                  <button class="btn btn-primary ">See profile</button>
-                  <button class="btn btn-danger mx-2" (click)="logout()">Log out</button>
-                </div>
-              </div>
+  <div class="row justify-content-md-center">
+    <div class="col">
+      <div class="card my-3" style="width: 18rem">
+        <img
+          src="../../assets/img/profile.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ this.user.username }}</h5>
+          <h6 class="card-subtitle mb-2">
+            {{ this.userProfile!.firstName + " " + this.userProfile!.lastName }}
+          </h6>
+          <p class="card-text">{{ this.userProfile!.description }}</p>
         </div>
-        <div class="col-lg-8">
-          <div class="feature_item ">
-            <div class="row">
-              <div class="row-lg-6">
-                <div class="card my-3">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Country: {{this.userProfile!.country}}</li>
+          <li class="list-group-item">City: {{this.userProfile!.city}}</li>
+        </ul>
+        <div class="card-body">
+          <a class="btn btn-primary" routerLink="/profile">See profile</a>
+          <button class="btn btn-danger mx-2" (click)="logout()">
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="feature_item">
+        <div class="row">
+          <div class="row-lg-6">
+            <div class="card my-3">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
               </div>
-              
-              <div class="row-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div>
+            </div>
+          </div>
+
+          <div class="row-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 </div>
