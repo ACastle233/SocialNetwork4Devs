@@ -27,19 +27,11 @@
       </div>
     </div>
     <div class="col-lg-8">
-
-
       <div class="feature_item">
         <div class="row">
           <div class="row-lg-6">
-
-            <form action="" class="form-group">
-              <input type="text" class="form-control my-3" placeholder="Search for a dev..." (input)="searchDevs($event)">
-            </form>
-
             <div class="card my-3" *ngFor="let profile of this.profiles">
               <div class="card-body">
-                <img src="../../assets/img/profile.png" class="imgProfile rounded float-end"/>
                 <h5 class="card-title">{{profile.firstName + " " + profile.lastName}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{profile.country}}</h6>
                 <p class="card-text">
