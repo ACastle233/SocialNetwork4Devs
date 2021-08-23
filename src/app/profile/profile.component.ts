@@ -5,6 +5,8 @@ import { Profile } from '../models/Profile';
 import { Score, ScoreModule } from '../models/ScoreModel';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EditProfileComponent } from '../popups/edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-profile',
@@ -26,7 +28,7 @@ export class ProfileComponent implements OnInit {
   ];
  
   scoreknowledge?: Array<ScoreModule> = new Array<ScoreModule>();
-  constructor(private apiService:ApiService, private auth:AuthService, private formBuilder: FormBuilder, private router:Router) { 
+  constructor(private modalService: NgbModal, private apiService:ApiService, private auth:AuthService, private formBuilder: FormBuilder, private router:Router) { 
     let aux: ScoreModule = {score:this.pBD}
     for (let j = 0; j < 5; j++) {
       this.scoreknowledge?.push(aux)
@@ -88,7 +90,10 @@ export class ProfileComponent implements OnInit {
       alert(`Error: ${err.message}`)
     }
   }
-
+  open() {
+    const modalRef = this.modalService.open(EditProfileComponent);
+    modalRef.componentInstance.name = 'World';
+  }
 
 
 

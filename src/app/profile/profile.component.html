@@ -31,8 +31,6 @@
         Settings
       </button>
     </div>
-    <div class="row">
-      <div class="col col-lg-12">
         <div class="tab-content" id="v-pills-tabContent">
           <div
             class="tab-pane fade show active"
@@ -40,7 +38,9 @@
             role="tabpanel"
             aria-labelledby="v-pills-profile-tab"
           >
-          
+
+    <div class="row">
+      <div class="col">
             <div class="card w-100">
               
               <div class="card-body">
@@ -71,16 +71,16 @@
                   Hobbies: {{this.userProfile?.hobbies}}
                 </p>
     
-              <button class="btn btn-primary text-center">Edit profile</button>
+              <button (click)="open()" class="btn btn-primary text-center">Edit profile</button>
               </div>
             </div>
             
             <div class="card w-100">
               <div class="card-body">
                 <form>
-                  <h4>Conocimientos</h4>
+                  <h4>Knownledge</h4>
                   <div *ngFor="let camp of scoreknowledge!">
-                    <label class="mx-2">Base de datos: </label>
+                    <label class="mx-2">Data bases: </label>
                     <select [(ngModel)]="selectedValue" name="bd">
                       <option *ngFor="let score of camp.score" [value]="score.value">
                         {{score.viewValue}}
@@ -96,36 +96,7 @@
               
             </div>
 
-            <div class="card w-100">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Full name</h5>
-                <p class="card-text">
-                  Description ssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-                </p>
-                <p class="card-text">
-                  Country: 
-                </p>
-                <p class="card-text">
-                  City: 
-                </p>
-                <p class="card-text">
-                  Age: 
-                </p>
-                <p class="card-text">
-                  Studies: 
-                </p>
-                <p class="card-text">
-                  Languages: 
-                </p>
-                <p class="card-text">
-                  Linkedin: 
-                </p>
-                <p class="card-text">
-                  Hobbies: 
-                </p>
-              </div>
-            </div>
+            
             
           </div>
           <div

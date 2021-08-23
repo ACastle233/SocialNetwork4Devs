@@ -1,0 +1,138 @@
+<div class="modal-header">
+  <h4 class="modal-title">Edit profile</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="formProfile!">
+    <div class="row">
+      <div class="col">
+        <div class="form-group form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstName"
+            name="firstName"
+            placeholder="First Name"
+          />
+          <label>First name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group form-floating">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="lastName"
+            name="lastName"
+            placeholder="Last Name"
+          />
+          <label>Last name</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="description"
+          name="description"
+          placeholder="Description"
+        />
+        <label>Description</label>
+      </div>
+    <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="country"
+          name="country"
+          placeholder="Country"
+        />
+        <label>Country</label>
+      </div>
+      <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="city"
+          name="city"
+          placeholder="City"
+        />
+        <label>City</label>
+      </div>
+      <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="age"
+          name="age"
+          placeholder="age"
+        />
+        <label>Age</label>
+      </div>
+      <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="studies"
+          name="studies"
+          placeholder="Studies"
+        />
+        <label>Studies</label>
+      </div>
+      <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="languages"
+          name="languages"
+          placeholder="Languages"
+        />
+        <label>languages</label>
+      </div>
+      <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="hobbies"
+          name="hobbies"
+          placeholder="Hobbies"
+        />
+        <label>Hobbies</label>
+      </div>
+      <div class="form-group form-floating">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="linkedin"
+          name="linkedin"
+          placeholder="Linkedin"
+        />
+        <label>Linkedin</label>
+      </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="saveProfile()"
+  >
+    Send
+  </button>
+</div>

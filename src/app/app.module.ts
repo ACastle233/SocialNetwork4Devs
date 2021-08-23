@@ -12,7 +12,8 @@ import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
-import { EditProfileComponent } from './popups/edit-profile/edit-profile.component'
+import { EditProfileComponent } from './popups/edit-profile/edit-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
   
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditProfileComponent } from './popups/edit-profile/edit-profile.compone
     BrowserModule,
     AppRoutingModule,FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent]
