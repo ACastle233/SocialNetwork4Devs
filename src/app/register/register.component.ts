@@ -82,6 +82,7 @@ export class RegisterComponent implements OnInit {
       this.apiService.postTypeRequest('api/usuarios/register', usuario).subscribe((res:any) =>{
         console.log(res)
         alert('User registered!')
+        this.router.navigateByUrl('');
       })
     }else alert('The passwords are not the same')
     
